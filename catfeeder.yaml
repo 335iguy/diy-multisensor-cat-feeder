@@ -1,0 +1,65 @@
+esphome:
+  name: catfeeder
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: 'WiFiName'
+  password: 'WiFiPassword'
+# I like to set manual IP, if you don't want this, simply delete this portion #
+  manual_ip:
+    static_ip: 10.0.1.123
+    gateway: 10.0.1.1
+    subnet: 255.255.255.0
+    dns1: 10.0.1.2
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  services:
+    - service: control_servo
+      variables:
+        level: float
+      then:
+        - servo.write:
+            id: catfeeder
+            level: !lambda 'return level / 100.0;'
+servo:
+  - id: catfeeder
+    output: pwm_output
+ota:
+
+sensor:
+  - platform: dht
+    pin: D6
+    model: DHT11
+    temperature:
+      name: "CatFeeder Temperature"
+    humidity:
+      name: "CatFeeder Humidity"
+    update_interval: 300s
+  - platform: wifi_signal
+    name: "CatFeeder RSSI"
+    update_interval: 300s
+  - platform: uptime
+    name: "CatFeeder Uptime"
+  - platform: ultrasonic
+    trigger_pin: D8
+    echo_pin: D7
+    name: "Cat Food Remaining"
+    update_interval: 60s
+binary_sensor:
+  - platform: gpio
+    pin: D3
+    name: "Cat Motion"
+    device_class: motion
+switch:
+  - platform: restart
+    name: "Restart CatFeeder"
+output:
+  - platform: esp8266_pwm
+    id: servo
+    frequency: 50Hz
+    pin: D1

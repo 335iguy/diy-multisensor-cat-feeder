@@ -1,9 +1,10 @@
 # DIY Multi-Sensor Cat Feeder - Using ESPHome, Home Assistant, and Node Red
-This catfeeder features quite a lot of tech! Besides its main funtion of a feeder itself, it also has an ultrasonic sensor to tell us when the feeder is low*, a DHT11** to tell us temperature and humidity, an HC-SR505*** for motion detection, and tie it into your Home Automation system!
-<b> Fotnotes: </b>
-* Te feeder sends an HTML5 Notify alert to my phone, for HTML5 Notifications, see https://www.home-assistant.io/components/html5/
-** A DHT11 sensor isn't as accurate as the DHT22, however, the DHT11 is cheaper. I purchased 5 of them at once to sweeten the deal.
-*** The HC-SR505 I got also in bulk as I thought they'd work pretty well. They do work well for this application, but they cannot be close to your ESP8266 device, else it will throw false positives. I have mine about 8 inches from my ESP8266 device and the flase positives are nought.
+This catfeeder features quite a lot of tech! Besides its main funtion of a feeder itself, it also has an ultrasonic sensor to tell us when the feeder is low^, a DHT11^^ to tell us temperature and humidity, an HC-SR505^^^ for motion detection, and tie it into your Home Automation system!
+
+# Footnotes:
+* (^)The feeder sends an HTML5 Notify alert to my phone, for HTML5 Notifications, see https://www.home-assistant.io/components/html5/ <br>
+* (^^)A DHT11 sensor isn't as accurate as the DHT22, however, the DHT11 is cheaper. I purchased 5 of them at once to sweeten the deal. <br>
+* (^^^)The HC-SR505 I got also in bulk as I thought they'd work pretty well. They do work well for this application, but they cannot be close to your ESP8266 device, else it will throw false positives. I have mine about 8 inches from my ESP8266 device and the flase positives are nought.
 
 Thanks for checking this out! Here is what my prototype cat feeder looks like:
 
@@ -21,3 +22,13 @@ Thanks for checking this out! Here is what my prototype cat feeder looks like:
 -  1x 6"x6"x1/2" Piece of wood of choice
 -  1x 6"x18"x1/2" Piece of wood of choice
 -  2x Drywall screws
+-  5x8mm Coupling (if you can get just one, I should have went with this method and did not, set me back a week)
+-  Various header wires (male-male, male-female, female-female)
+-  Multi-Meter to test voltage from Power Supply to buck converter
+
+# Building it!
+Sorry, I had no pictures of the build process, but here's what I can give you:
+* Use the 6x6 piece of wood as a base and set the 18x6 level with the base, and screw the 2 drywall screws from the back of the 18x6 through to the 6x6. Should hold up nicely.
+* Connect the power supply to the buck converter, and use a small flathead to turn down the voltage to 7v.
+* Use your breadboard and set up the following:
+  (insert Fritzing Schematic here)

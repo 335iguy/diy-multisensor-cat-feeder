@@ -1,4 +1,4 @@
-# DIY Multi-Sensor Cat Feeder - Using ESPHome, Home Assistant, and Node Red
+# DIY Multi-Sensor Cat Feeder - Using ESPHome, Home Assistant, and Node Red - README WORK IN PROGRESS!
 This catfeeder features quite a lot of tech! Besides its main funtion of a feeder itself, it also has an ultrasonic sensor to tell us when the feeder is low^, a DHT11^^ to tell us temperature and humidity, an HC-SR505^^^ for motion detection, and tie it into your Home Automation system!
 
 # Footnotes:

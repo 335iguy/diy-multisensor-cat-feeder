@@ -15,7 +15,7 @@ wifi:
 
 # Enable logging
 logger:
-
+ level: debug
 # Enable Home Assistant API
 api:
   services:
@@ -24,12 +24,19 @@ api:
         level: float
       then:
         - servo.write:
-            id: catfeeder
+            id: catfeeder_tilt
             level: !lambda 'return level / 100.0;'
-servo:
-  - id: catfeeder
-    output: pwm_output
 ota:
+
+output:
+  - platform: esp8266_pwm
+    id: 'catfeeder'
+    frequency: 50Hz
+    pin: D1
+    
+servo:
+  - output: 'catfeeder'
+    id: catfeeder_tilt
 
 sensor:
   - platform: dht
@@ -58,8 +65,3 @@ binary_sensor:
 switch:
   - platform: restart
     name: "Restart CatFeeder"
-output:
-  - platform: esp8266_pwm
-    id: servo
-    frequency: 50Hz
-    pin: D1

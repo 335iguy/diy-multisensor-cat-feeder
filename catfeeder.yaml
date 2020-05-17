@@ -4,20 +4,27 @@ esphome:
   board: nodemcuv2
 
 wifi:
-  ssid: 'WiFiName'
-  password: 'WiFiPassword'
-# I like to set manual IP, if you don't want this, simply delete this portion #
+  ssid: "[Insert SSID Here]"
+  password: "[Insert password Here]"
+# Use manual_ip if you want a static ip for better reliability, otherwise just use ssid and password
   manual_ip:
-    static_ip: 10.0.1.123
-    gateway: 10.0.1.1
-    subnet: 255.255.255.0
-    dns1: 10.0.1.2
+    static_ip: 
+    gateway: 
+    subnet: 
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Catfeeder Fallback Hotspot"
+    password: "[Insert password Here]"
+
+captive_portal:
 
 # Enable logging
 logger:
- level: debug
+
 # Enable Home Assistant API
 api:
+  password: "[Insert password Here]"
   services:
     - service: control_servo
       variables:
@@ -27,7 +34,7 @@ api:
             id: catfeeder_tilt
             level: !lambda 'return level / 100.0;'
 ota:
-
+  password: ""
 output:
   - platform: esp8266_pwm
     id: 'catfeeder'

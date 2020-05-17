@@ -1,0 +1,1102 @@
+[
+    {
+        "id": "e05479c4.16cbe8",
+        "type": "tab",
+        "label": "Example",
+        "disabled": false,
+        "info": "Cat Feeder Timer, Servo control, and notify"
+    },
+    {
+        "id": "668e7de5.6adff4",
+        "type": "server-state-changed",
+        "z": "e05479c4.16cbe8",
+        "name": "Feed Boolean On",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "input_boolean.feed_cat",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 100,
+        "y": 300,
+        "wires": [
+            [],
+            [
+                "5dd520e6.cff34",
+                "4e0a8065.0e991"
+            ]
+        ]
+    },
+    {
+        "id": "5dd520e6.cff34",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 288,
+        "y": 286,
+        "wires": [
+            [
+                "eab5d9a3.f27c58"
+            ]
+        ]
+    },
+    {
+        "id": "eab5d9a3.f27c58",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feed Boolean Off",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_boolean",
+        "service": "turn_off",
+        "entityId": "input_boolean.feed_cat",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 458,
+        "y": 286,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c681716.d50398",
+        "type": "server-state-changed",
+        "z": "e05479c4.16cbe8",
+        "name": "Cat Bowl Boolean On",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "input_boolean.play_catbowl",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 113,
+        "y": 228,
+        "wires": [
+            [],
+            [
+                "ac5cbef5.55d98"
+            ]
+        ]
+    },
+    {
+        "id": "ac5cbef5.55d98",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 291,
+        "y": 251,
+        "wires": [
+            [
+                "8611bfd8.adf0d"
+            ]
+        ]
+    },
+    {
+        "id": "8611bfd8.adf0d",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Bowl Boolean Off",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_boolean",
+        "service": "turn_off",
+        "entityId": "input_boolean.play_catbowl",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 458,
+        "y": 246,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93ea9ca0.dd53b",
+        "type": "inject",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 128,
+        "y": 386,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "76e7af42.26234",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 20",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"20\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 298,
+        "y": 466,
+        "wires": [
+            [
+                "2209198f.e54ad6"
+            ]
+        ]
+    },
+    {
+        "id": "da19b07e.4fc85",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 40",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"40\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 298,
+        "y": 426,
+        "wires": [
+            [
+                "c1243523.8d7838"
+            ]
+        ]
+    },
+    {
+        "id": "ee129685.ebad48",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 60",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"60\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 298,
+        "y": 386,
+        "wires": [
+            [
+                "24aef7a4.384948"
+            ]
+        ]
+    },
+    {
+        "id": "f8793198.eba18",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 20",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"20\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 658,
+        "y": 526,
+        "wires": [
+            [
+                "89ba7625.4acd98"
+            ]
+        ]
+    },
+    {
+        "id": "8d43dd36.c39e6",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 40",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"40\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 658,
+        "y": 566,
+        "wires": [
+            [
+                "587ebc5c.158174"
+            ]
+        ]
+    },
+    {
+        "id": "812d55e8.adda98",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 60",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"60\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 658,
+        "y": 606,
+        "wires": [
+            [
+                "245a53ec.19886c"
+            ]
+        ]
+    },
+    {
+        "id": "742da4f1.1226cc",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 0",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"0\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 308,
+        "y": 506,
+        "wires": [
+            [
+                "4f4e9559.78423c"
+            ]
+        ]
+    },
+    {
+        "id": "24aef7a4.384948",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 478,
+        "y": 406,
+        "wires": [
+            [
+                "da19b07e.4fc85"
+            ]
+        ]
+    },
+    {
+        "id": "c1243523.8d7838",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 478,
+        "y": 446,
+        "wires": [
+            [
+                "76e7af42.26234"
+            ]
+        ]
+    },
+    {
+        "id": "2209198f.e54ad6",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 474,
+        "y": 489,
+        "wires": [
+            [
+                "742da4f1.1226cc"
+            ]
+        ]
+    },
+    {
+        "id": "4f4e9559.78423c",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 478,
+        "y": 526,
+        "wires": [
+            [
+                "cae2d31e.a135c"
+            ]
+        ]
+    },
+    {
+        "id": "3ab510b0.aaa08",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 478,
+        "y": 566,
+        "wires": [
+            [
+                "5c89dd12.930774"
+            ]
+        ]
+    },
+    {
+        "id": "26697ea7.ff19c2",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 478,
+        "y": 606,
+        "wires": [
+            [
+                "260f129.15070ee"
+            ]
+        ]
+    },
+    {
+        "id": "99e3ff0a.e55ac",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 478,
+        "y": 646,
+        "wires": [
+            [
+                "54fbcfd3.79d91"
+            ]
+        ]
+    },
+    {
+        "id": "c2972cfa.794e3",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder -20",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"-20\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 658,
+        "y": 446,
+        "wires": [
+            [
+                "67a38f5d.00318"
+            ]
+        ]
+    },
+    {
+        "id": "12ec6894.1e4167",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder -40",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"-40\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 658,
+        "y": 406,
+        "wires": [
+            [
+                "cb8ef398.16518"
+            ]
+        ]
+    },
+    {
+        "id": "5b485117.0bb23",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder -60",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"-60\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 658,
+        "y": 366,
+        "wires": [
+            [
+                "21ef2ba.edc4ed4"
+            ]
+        ]
+    },
+    {
+        "id": "1e9cacaf.52c723",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 0",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"0\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 668,
+        "y": 486,
+        "wires": [
+            [
+                "fc73f0a0.c140d"
+            ]
+        ]
+    },
+    {
+        "id": "cae2d31e.a135c",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder -20",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"-20\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 298,
+        "y": 546,
+        "wires": [
+            [
+                "3ab510b0.aaa08"
+            ]
+        ]
+    },
+    {
+        "id": "5c89dd12.930774",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder -40",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"-40\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 298,
+        "y": 586,
+        "wires": [
+            [
+                "26697ea7.ff19c2"
+            ]
+        ]
+    },
+    {
+        "id": "260f129.15070ee",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder -60",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"-60\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 298,
+        "y": 626,
+        "wires": [
+            [
+                "99e3ff0a.e55ac"
+            ]
+        ]
+    },
+    {
+        "id": "21ef2ba.edc4ed4",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 818,
+        "y": 386,
+        "wires": [
+            [
+                "12ec6894.1e4167"
+            ]
+        ]
+    },
+    {
+        "id": "cb8ef398.16518",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 818,
+        "y": 426,
+        "wires": [
+            [
+                "c2972cfa.794e3"
+            ]
+        ]
+    },
+    {
+        "id": "67a38f5d.00318",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 818,
+        "y": 466,
+        "wires": [
+            [
+                "1e9cacaf.52c723"
+            ]
+        ]
+    },
+    {
+        "id": "fc73f0a0.c140d",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 814,
+        "y": 509,
+        "wires": [
+            [
+                "f8793198.eba18"
+            ]
+        ]
+    },
+    {
+        "id": "89ba7625.4acd98",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 818,
+        "y": 546,
+        "wires": [
+            [
+                "8d43dd36.c39e6"
+            ]
+        ]
+    },
+    {
+        "id": "587ebc5c.158174",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 818,
+        "y": 586,
+        "wires": [
+            [
+                "812d55e8.adda98"
+            ]
+        ]
+    },
+    {
+        "id": "245a53ec.19886c",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 818,
+        "y": 626,
+        "wires": [
+            [
+                "f3967b33.99a488"
+            ]
+        ]
+    },
+    {
+        "id": "4e0a8065.0e991",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 80",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"80\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 298,
+        "y": 346,
+        "wires": [
+            [
+                "528b39ec.7b3218"
+            ]
+        ]
+    },
+    {
+        "id": "f3967b33.99a488",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder 80",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"80\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 658,
+        "y": 646,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54fbcfd3.79d91",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feeder -80",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_number",
+        "service": "set_value",
+        "entityId": "input_number.servo_control",
+        "data": "{\"value\":\"-80\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 658,
+        "y": 326,
+        "wires": [
+            [
+                "c631a380.bc7b8"
+            ]
+        ]
+    },
+    {
+        "id": "528b39ec.7b3218",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 478,
+        "y": 366,
+        "wires": [
+            [
+                "ee129685.ebad48"
+            ]
+        ]
+    },
+    {
+        "id": "c631a380.bc7b8",
+        "type": "delay",
+        "z": "e05479c4.16cbe8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 818,
+        "y": 346,
+        "wires": [
+            [
+                "5b485117.0bb23"
+            ]
+        ]
+    },
+    {
+        "id": "b8830fff.02025",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feed Notify",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "",
+        "entityId": "",
+        "data": "{\"message\":\"{{payload}}\" }",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 630,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5bee61c2.10731",
+        "type": "api-render-template",
+        "z": "e05479c4.16cbe8",
+        "name": "Time Template",
+        "server": "d74d230d.63bb5",
+        "template": " Cats fed at {{now().strftime(\"%-I\")}}:{{now().strftime(\"%M\")}} {{now().strftime(\"%p\")}}",
+        "resultsLocation": "payload",
+        "resultsLocationType": "msg",
+        "templateLocation": "template",
+        "templateLocationType": "msg",
+        "x": 458,
+        "y": 140,
+        "wires": [
+            [
+                "b8830fff.02025"
+            ]
+        ]
+    },
+    {
+        "id": "fec378ce.696388",
+        "type": "inject",
+        "z": "e05479c4.16cbe8",
+        "name": "0530",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "30 05 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "c2434815.038a58"
+            ]
+        ]
+    },
+    {
+        "id": "36e2b215.3a42de",
+        "type": "inject",
+        "z": "e05479c4.16cbe8",
+        "name": "1730",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "30 17 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "c2434815.038a58"
+            ]
+        ]
+    },
+    {
+        "id": "c2434815.038a58",
+        "type": "api-call-service",
+        "z": "e05479c4.16cbe8",
+        "name": "Feed Boolean On",
+        "server": "d74d230d.63bb5",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "input_boolean",
+        "service": "turn_on",
+        "entityId": "input_boolean.feed_cat",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "5bee61c2.10731"
+            ]
+        ]
+    },
+    {
+        "id": "d74d230d.63bb5",
+        "type": "server",
+        "z": "",
+        "name": "Home Assistant",
+        "legacy": false,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true
+    }
+]

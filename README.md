@@ -37,3 +37,8 @@ Sorry, I had no pictures of the build process, but here's what I can give you:
 * Connect the power supply to the buck converter, and use a small flathead to turn down the voltage to 7v.
 * Use your breadboard and set up the following:
 <a href="https://imgur.com/T4pAJ5U"><img src="https://i.imgur.com/T4pAJ5Uh.png" title="source: imgur.com" /></a>
+
+# Home Assistant
+For the ease of programming and quick integration, I use ESPHome to program my NodeMCUs throughout the house. In combination, I use Node-Red to create the time-based automation to feed my cats and also notfy me when the food gets low. Check out the yaml file for the programming. Should just be quick copy/paste, inseryt your info, and flash it with either ESPFlasher or your preferred flashing method. 
+
+Once flashed, you'll want to integreate it into HomeAssistant. This should bring up quite a few things like your ultrasonic sensor, temperature, humidity, WiFi RSSI, a restart button, and more!
